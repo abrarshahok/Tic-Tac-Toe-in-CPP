@@ -156,46 +156,47 @@ void Human_vs_Human() // Main Function to Execute Game
     starline();
     cout<<"\nSelect (X or O): "; 
     cin>>marker;
-    starline();
     }while(marker!='O' && marker!='o' && marker!='x'&& marker!='X');
     
     CurrentPlayer = 1;
     CurrentMark = marker;
-    drawBoard();
     for(int i=0; i<9; i++){
         if(CurrentPlayer == 1){
+            system("clear");
+            starline();
+            drawBoard();
+            starline();
             cout<<endl<<p1<<"'s Turn"<<endl<<"Please Enter Your Slot : ";
             cin>>slot;
-        
             if(slot<1 || slot>9){
-                drawBoard();
-                cout<<"\nInvalid Slot!\nPlease Re-Enter Slot.";
+                cout<<"\nInvalid Slot!\n"<<p1<<",Please Re-Enter Slot.";
                 --i;
                 continue;
             }
 
             if(!placeMarker(slot)){
-                drawBoard();
-                cout<<"\nThat Slot is Occupied!\nPlease Choose another Slot.\n";
+                cout<<"\nThat Slot is Occupied!\n"<<p1<<",Please Choose another Slot.\n";
                 --i;
                 continue;
             }
         }
 
         if(CurrentPlayer == 2){
+            system("clear");
+            starline();
+            drawBoard();
+            starline();
             cout<<endl<<p2<<"'s Turn"<<endl<<"Please Enter Your Slot : ";
             cin>>slot;
         
             if(slot<1 || slot>9){
-                drawBoard();
-                cout<<"\nInvalid Slot!\nPlease Re-Enter Slot.";
+                cout<<"\nInvalid Slot!\n"<<p2<<",Please Re-Enter Slot.";
                 --i;
                 continue;
             }
 
             if(!placeMarker(slot)){
-                drawBoard();
-                cout<<"\nThat Slot is Occupied!\nPlease Choose another Slot.\n";
+                cout<<"\nThat Slot is Occupied!\n"<<p2<<",Please Choose another Slot.\n";
                 --i;
                 continue;
             }
@@ -204,17 +205,21 @@ void Human_vs_Human() // Main Function to Execute Game
         
         winner = theWinner(); // Assigning Full Function to a Variable
         if(winner==1){
+            system("clear");
+            starline();
             drawBoard();
             starline();
-            write<<"=> Human vs Human"<<endl<<p1<<" Won the Game <3\n"<<p2<<" Loss the Game :(\n"<<endl;
+            write<<"=> Human vs Human\n   "<<p1<<" Won the Game <3\n   "<<p2<<" Loss the Game :(\n"<<endl;
             cout<<"\nCongratulations "<<p1<<", You are the Winner <3"<<endl;
             starline();
             break;
         }
         if (winner==2){
+            system("clear");
+            starline();
             drawBoard();
             starline();
-            write<<"=> Human vs Human"<<endl<<p2<<" Won the Game <3\n"<<p1<<" Loss the Game :(\n"<<endl;
+            write<<"=> Human vs Human\n   "<<p2<<" Won the Game <3\n   "<<p1<<" Loss the Game :(\n"<<endl;
             cout<<"\nCongratulations "<<p2<<", You are the Winner <3"<<endl;
             starline();
             break;
@@ -224,6 +229,9 @@ void Human_vs_Human() // Main Function to Execute Game
         }
 
     if(winner == 0){
+        system("clear");
+        starline();
+        drawBoard();
         starline();
         write<<"=> Human vs Human\n   Game Tied!\n"<<endl;
         cout<<"\nGame Tied!\n";
@@ -250,33 +258,33 @@ void Human_vs_Pc(){
     starline();
     cout<<"\nSelect (X or O): "; 
     cin>>marker;
-    starline();
     }while(marker!='O' && marker!='o' && marker!='x'&& marker!='X');
     CurrentPlayer = Human;
     CurrentMark = marker;
 
-    drawBoard();
-
     for(int i=0; i<9; i++){
         if(CurrentPlayer == Human){
-            cout<<endl<<Name<<"'s Turn\nPlease Enter Your Slot : ";
+            system("clear");
+            starline();
+            drawBoard();
+            starline();
+            cout<<endl<<"Your Turn.\nPlease Enter Your Slot : ";
             cin>>slot;
             if(slot<1 || slot>9){
-                drawBoard();
-                cout<<"\nInvalid Slot!\nPlease Re-Enter Slot.";
+                cout<<"\nInvalid Slot!\n"<<Name<<",Please Re-Enter Slot.";
                 --i;
                 continue;
         }
 
             if(!placeMarker(slot)){
-                drawBoard();
-                cout<<"\nThat Slot is Occupied!\nPlease Choose another Slot.\n";
+                cout<<"\nThat Slot is Occupied!\n"<<Name<<",Please Choose another Slot.\n";
                 --i;
                 continue;
         }
         }
 
         else if(CurrentPlayer == Pc){
+            starline();
             slot = ((rand()%9)+1);
             if(slot<1 || slot>9){
             --i;
@@ -287,23 +295,25 @@ void Human_vs_Pc(){
             --i;
             continue;
         }
-        cout<<"\nPc's Turn";
-        cout<<"\nPc Choosed Slot No : "<<slot<<endl;
         }
 
         winner = theWinner(); // Assigning Full Function to a Variable
         if(winner == Human){
+            system("clear");
+            starline();
             drawBoard();
             starline();
-            write<<"=> Human vs Pc\n"<<Name<<" Won The Game <3\nPc Loss the Game :(\n"<<endl;
+            write<<"=> Human vs Pc\n   "<<Name<<" Won The Game <3\n   Pc Loss the Game :(\n"<<endl;
             cout<<"\nCongratulations "<<Name<<", You are the Winner <3"<<endl;
             starline();
             break;
         }
         if (winner == Pc){
+            system("clear");
+            starline();
             drawBoard();
             starline();
-            write<<"=> Human vs Pc\nPc Won the Game <3\n"<<Name<<" Loss the Game :(\n"<<endl;
+            write<<"=> Human vs Pc\n   Pc Won the Game <3\n   "<<Name<<" Loss the Game :(\n"<<endl;
             cout<<"\nPc is the Winner <3\n"<<Name<<", Better Luck Next Time!"<<endl;
             starline();
             break;
@@ -313,6 +323,8 @@ void Human_vs_Pc(){
     }
 
      if(winner == 0){
+        system("clear");
+        drawBoard();
         starline();
         write<<"=> Human vs Pc\n   Game Tied!\n"<<endl;
         cout<<"\nGame Tied!\n";
@@ -329,9 +341,12 @@ void showGameHistory(){
     getline(read,str);
     bool empty = str.empty() != 0;
     if(empty){
-        cout<<"No Game History Found!"<<endl;
+        cout<<"\nNo Game History Found!"<<endl;
     }
     else{
+        cout<<"\nGame History"<<endl;
+        starline();
+        cout<<endl;
         cout<<str<<endl;
         while(read.eof()==0){
         getline(read,str);
@@ -373,9 +388,6 @@ int main(){
             Human_vs_Pc();
             break;
         case 3:
-            cout<<"\nGame History"<<endl;
-            starline();
-            cout<<endl;
             showGameHistory();
             break;
         case 4:
