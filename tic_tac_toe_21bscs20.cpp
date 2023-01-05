@@ -57,7 +57,8 @@ void drawBoard() // Function to Draw Tik Tac Toe Game Board
 
 }
 
-void reset_Board(){
+void reset_Board() // Function to Reset Board to Previous State
+{
 
     if(board[0][0] != '1'){
         board[0][0] = '1';
@@ -137,7 +138,7 @@ void swaping() // This will Exchange Player and Markers
 
 }
 
-void Human_vs_Human() // Main Function to Execute Game
+void Human_vs_Human() // Human vs Human Gameplay Function
 {
     write.open("winner.txt",ios::app);
     int slot,winner;
@@ -238,7 +239,8 @@ void Human_vs_Human() // Main Function to Execute Game
     write.close();
 }
 
-void Human_vs_Pc(){
+void Human_vs_Pc() // Human vs PC Gameplay Function
+{
     write.open("winner.txt",ios::app);
     srand(time(0)); //Initializing Random Number Generator
     int slot,winner;
