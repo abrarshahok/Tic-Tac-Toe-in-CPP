@@ -169,13 +169,11 @@ void Human_vs_Human() // Main Function to Execute Game
             cout<<endl<<p1<<"'s Turn"<<endl<<"Please Enter Your Slot : ";
             cin>>slot;
             if(slot<1 || slot>9){
-                cout<<"\nInvalid Slot!\n"<<p1<<",Please Re-Enter Slot.\n";
                 --i;
                 continue;
             }
 
             if(!placeMarker(slot)){
-                cout<<"\nThat Slot is Occupied!\n"<<p1<<",Please Choose another Slot.\n";
                 --i;
                 continue;
             }
@@ -190,13 +188,11 @@ void Human_vs_Human() // Main Function to Execute Game
             cin>>slot;
         
             if(slot<1 || slot>9){
-                cout<<"\nInvalid Slot!\n"<<p2<<",Please Re-Enter Slot.\n";
                 --i;
                 continue;
             }
 
             if(!placeMarker(slot)){
-                cout<<"\nThat Slot is Occupied!\n"<<p2<<",Please Choose another Slot.\n";
                 --i;
                 continue;
             }
@@ -271,13 +267,11 @@ void Human_vs_Pc(){
             cout<<endl<<"Your Turn.\nPlease Enter Your Slot : ";
             cin>>slot;
             if(slot<1 || slot>9){
-                cout<<"\nInvalid Slot!\n"<<Name<<",Please Re-Enter Slot.\n";
                 --i;
                 continue;
             }
 
             if(!placeMarker(slot)){
-                cout<<"\nThat Slot is Occupied!\n"<<Name<<",Please Choose another Slot.\n";
                 --i;
                 continue;
             }
